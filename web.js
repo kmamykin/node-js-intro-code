@@ -27,6 +27,8 @@ app.get('/memes', function (req, res) {
   })
 })
 
+// try https://api.imgflip.com/get_memes
+
 var server = app.listen(process.env.PORT || 8888, function () {
   var address = server.address()
   console.log('Example app listening at http://%s:%s', address.address, address.port)

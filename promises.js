@@ -22,23 +22,23 @@ function fetchUrl (url) {
   })
 }
 
-fetchUrl(urls[0]).then(console.log, console.error)
+//fetchUrl(urls[0]).then(console.log, console.error)
 
-// Q.all(urls.map(fetchUrl)).then(function (results) {
+//Q.all(urls.map(fetchUrl)).then(function (results) {
 //  console.log(results)
-// })
+//}, console.error)
 
-// fetchUrl(urls[0])
-//  .then(JSON.parse)
-//  .then(function (data) {return data.result})
-//  .then(function (memes) {return memes.map(function (meme) {return meme.imageUrl})})
-//  .then(function (imageUrls) {
-//    return imageUrls.map(function (imageUrl) {
-//      return downloadImage(imageUrl, newImageFileName())
-//    })
-//  })
-//  .then(Q.all)
-//  .then(console.log)
+fetchUrl(urls[0])
+  .then(JSON.parse)
+  .then(function (data) {return data.result})
+  .then(function (memes) {return memes.map(function (meme) {return meme.imageUrl})})
+  .then(function (imageUrls) {
+    return imageUrls.map(function (imageUrl) {
+      return downloadImage(imageUrl, newImageFileName())
+    })
+  })
+  .then(function (promises) {return Q.all(promises)})
+  .then(console.log)
 
 function downloadImage (uri, filename) {
   return new Q.Promise(function (resolve, reject, notify) {

@@ -1,3 +1,4 @@
+
 var m = require('./exampleModule')
 
 console.log(m.doSync())

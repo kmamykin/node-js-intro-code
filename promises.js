@@ -8,18 +8,18 @@ var urls = [
   'https://api.imgflip.com/get_memes'
 ]
 
-fetchUrl(urls[0]).then(console.log, console.error) // chainable
+//fetchUrl(urls[0]).then(console.log, console.error) // chainable
 
 //Promise.all(urls.map(fetchUrl)).then(function (results) {
 //  console.log(results)
 //}, console.error)
 
-//fetchUrl(urls[0])
-//  .then(JSON.parse)
-//  .then(extractImageUrls)
-//  .then(downloadImages)
-//  .then(Promise.all)
-//  .then(console.log, console.error)
+fetchUrl(urls[0])
+  .then(JSON.parse)
+  .then(extractImageUrls2('bals'))
+  .then(downloadImages)
+  .then(Promise.all)
+  .then(console.log, console.error)
 
 // url -> Promise<body>
 function fetchUrl (url) {
@@ -36,6 +36,11 @@ function fetchUrl (url) {
     })
   })
 }
+//var Q = require('q')
+//var readFile = Q.denodeify(fs.readFile)
+//readFile('promises.js').then(function (buffer) {
+//  console.log(buffer.toString())
+//})
 
 // url -> filename -> Promise<filename>
 function downloadImage (uri, filename) {
@@ -53,8 +58,10 @@ function downloadImages (imageUrls) {
   })
 }
 
-function extractImageUrls (data) {
-  return data.result.map(function (meme) { return meme.imageUrl })
+function extractImageUrls2(param) {
+  return function extractImageUrls (data) {
+    return data.result.map(function (meme) { return meme.imageUrl })
+  }
 }
 
 var counter = 0

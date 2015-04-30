@@ -8,11 +8,11 @@ var urls = [
   'https://api.imgflip.com/get_memes'
 ]
 
-//fetchUrl(urls[0]).then(console.log, console.error)
+fetchUrl(urls[0]).then(console.log, console.error) // chainable
 
-Promise.all(urls.map(fetchUrl)).then(function (results) {
-  console.log(results)
-}, console.error)
+//Promise.all(urls.map(fetchUrl)).then(function (results) {
+//  console.log(results)
+//}, console.error)
 
 //fetchUrl(urls[0])
 //  .then(JSON.parse)

@@ -1,9 +1,6 @@
-
 var fs = require('fs')
 var crypto = require('crypto')
 var shasum = crypto.createHash('sha1')
-
-var express = require('express')
 
 module.exports = {
   doSync: function () {

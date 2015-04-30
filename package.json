@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "async": "^0.9.0",
+    "co": "^4.5.2",
     "express": "^4.12.3",
     "jade": "^1.9.2",
     "q": "^1.2.0",
